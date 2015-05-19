@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Question behaviour type for adaptive behaviour, without penalties.
+ * Question behaviour type for adaptive behaviour with all or nothing grading
  *
  * @package    qbehaviour_adaptiveallnothing
  * @copyright  2015 Daniel Thies <dthies@ccal.edu>

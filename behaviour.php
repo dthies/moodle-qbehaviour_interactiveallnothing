@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Question behaviour for adaptive mode, with no penalties or no partial credit.
+ * Question behaviour for adaptive mode with no partial credit.
  *
  * @package    qbehaviour
  * @subpackage adaptiveallnothing
@@ -29,6 +29,6 @@ require_once(dirname(__FILE__) . '/../adaptive/behaviour.php');
 
 class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
     protected function adjusted_fraction($fraction, $prevtries) {
-        return $fraction == 1 ? 1: 0;
+        return $fraction == 1 ? $fraction - $this->question->penalty * $prevtries: 0;
     }
 }
