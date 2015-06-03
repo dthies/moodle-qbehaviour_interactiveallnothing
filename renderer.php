@@ -38,7 +38,4 @@ class qbehaviour_adaptiveallnothing_renderer extends qbehaviour_adaptive_rendere
         return get_string('gradingdetails', 'qbehaviour_adaptive', $mark);
     }
 
-    protected function disregarded_info() {
-        return '';
-    }
 }
