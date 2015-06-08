@@ -34,3 +34,4 @@ $plugin->dependencies = array(
 );
 
 $plugin->maturity  = MATURITY_STABLE;
+$plugin->release  = '2015051500';
