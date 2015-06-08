@@ -30,12 +30,4 @@ defined('MOODLE_INTERNAL') || die();
 require_once(dirname(__FILE__) . '/../adaptive/renderer.php');
 
 class qbehaviour_adaptiveallnothing_renderer extends qbehaviour_adaptive_renderer {
-    protected function grading_details(qbehaviour_adaptive_mark_details $details, question_display_options $options) {
-        $mark = $details->get_formatted_marks($options->markdp);
-        if ($mark['raw'] !== $mark['max']) {
-            $mark['raw'] = 0;
-        }
-        return get_string('gradingdetails', 'qbehaviour_adaptive', $mark);
-    }
-
 }

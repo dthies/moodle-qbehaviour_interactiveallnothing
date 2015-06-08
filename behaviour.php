@@ -40,17 +40,22 @@ class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
     }
 
     public function get_adaptive_marks() {
+        $gradedstep = $this->get_graded_step();
+
         // If not partially correct fall back to parent.
-        if ($this->qa->get_state()->is_commented() || !$this->qa->get_state()->is_partially_correct()) {
+        if (empty($gradedstep) || $gradedstep->get_behaviour_var('_rawfraction') == 1) {
             return parent::get_adaptive_marks();
         }
 
         // Set state to wrong answer since it is partially correct.
         $state = question_state::$gradedwrong;
-        $gradedstep = $this->get_graded_step();
 
         // Prepare the grading details.
         $details = $this->adaptive_mark_details_from_step($gradedstep, $state, $this->qa->get_max_mark(), $this->question->penalty);
+
+        // Override raw score to show no credit.
+        $details->rawmark = 0;
+
         $details->improvable = $this->is_state_improvable($this->qa->get_state());
         return $details;
     }
