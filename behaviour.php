@@ -31,4 +31,28 @@ class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
     protected function adjusted_fraction($fraction, $prevtries) {
         return $fraction == 1 ? $fraction - $this->question->penalty * $prevtries: 0;
     }
+
+    public function get_state_string($showcorrectness) {
+        if ($this->qa->get_state()->is_partially_correct()) {
+            return question_state::$gradedwrong->default_string($showcorrectness);
+        }
+        return $this->qa->get_state()->default_string($showcorrectness);
+    }
+
+    public function get_adaptive_marks() {
+        // If not partially correct fall back to parent.
+        if ($this->qa->get_state()->is_commented() || !$this->qa->get_state()->is_partially_correct()) {
+            return parent::get_adaptive_marks();
+        }
+
+        // Set state to wrong answer since it is partially correct.
+        $state = question_state::$gradedwrong;
+        $gradedstep = $this->get_graded_step();
+
+        // Prepare the grading details.
+        $details = $this->adaptive_mark_details_from_step($gradedstep, $state, $this->qa->get_max_mark(), $this->question->penalty);
+        $details->improvable = $this->is_state_improvable($this->qa->get_state());
+        return $details;
+    }
+
 }
