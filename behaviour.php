@@ -29,7 +29,7 @@ require_once(dirname(__FILE__) . '/../adaptive/behaviour.php');
 
 class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
     protected function adjusted_fraction($fraction, $prevtries) {
-        return $fraction == 1 ? $fraction - $this->question->penalty * $prevtries: 0;
+        return round($fraction, 2) == 1 ? $fraction - $this->question->penalty * $prevtries: 0;
     }
 
     public function get_state_string($showcorrectness) {
@@ -43,7 +43,7 @@ class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
         $gradedstep = $this->get_graded_step();
 
         // If not partially correct fall back to parent.
-        if (empty($gradedstep) || $gradedstep->get_behaviour_var('_rawfraction') == 1) {
+        if (empty($gradedstep) || round($gradedstep->get_behaviour_var('_rawfraction'), 2) == 1) {
             return parent::get_adaptive_marks();
         }
 
