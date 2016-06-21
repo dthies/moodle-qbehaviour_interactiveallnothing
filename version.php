@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qbehaviour_adaptiveallnothing';
-$plugin->version   = 2015051502;
+$plugin->version   = 2015051503;
 
 $plugin->requires  = 2013111800;
 $plugin->dependencies = array(
@@ -34,4 +34,4 @@ $plugin->dependencies = array(
 );
 
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release  = '2015051502';
+$plugin->release  = '2015051503';
