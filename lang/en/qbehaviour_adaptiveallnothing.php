@@ -24,3 +24,4 @@
  */
 
 $string['pluginname'] = 'Adaptive mode (all or nothing)';
+$string['privacy:metadata'] = 'The Adaptive mode (all-or-nothing) question behaviour plugin does not store any personal data.';
