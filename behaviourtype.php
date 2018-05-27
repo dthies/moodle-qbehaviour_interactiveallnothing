@@ -18,7 +18,7 @@
  * Question behaviour type for adaptive behaviour with all or nothing grading
  *
  * @package    qbehaviour_adaptiveallnothing
- * @copyright  2015 Daniel Thies <dthies@ccal.edu>
+ * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

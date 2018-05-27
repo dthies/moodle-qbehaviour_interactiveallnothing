@@ -19,7 +19,7 @@
  *
  * @package    qbehaviour
  * @subpackage adaptiveallnothing
- * @copyright  2015 Daneil Thies <dthies@ccal.edu>
+ * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -27,6 +27,15 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once(dirname(__FILE__) . '/../adaptive/behaviour.php');
 
+/**
+ * Question behaviour for adaptive mode (all-or-nothing).
+ *
+ * This is same as adaptive except no credit is given for partially correct
+ * responses.
+ *
+ * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
     protected function adjusted_fraction($fraction, $prevtries) {
         return question_state::graded_state_for_fraction($fraction) ==
