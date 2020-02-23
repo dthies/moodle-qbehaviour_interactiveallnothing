@@ -15,11 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Renderer for outputting parts of a question belonging to adaptive
+ * Renderer for outputting parts of a question belonging to interactive
  * all or nothing behaviour.
  *
  * @package    qbehaviour
- * @subpackage adaptiveallnothing
+ * @subpackage interactiveallnothing
  * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,13 +27,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once(dirname(__FILE__) . '/../adaptive/renderer.php');
+require_once(dirname(__FILE__) . '/../interactive/renderer.php');
 
 /**
- * Renderer for outputting parts of a question belonging to adaptive (all-or-nothing) behaviour.
+ * Renderer for outputting parts of a question belonging to interactive (all-or-nothing) behaviour.
  *
  * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qbehaviour_adaptiveallnothing_renderer extends qbehaviour_adaptive_renderer {
+class qbehaviour_interactiveallnothing_renderer extends qbehaviour_interactive_renderer {
 }

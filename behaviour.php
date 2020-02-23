@@ -15,28 +15,28 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Question behaviour for adaptive mode with no partial credit.
+ * Question behaviour for interactive mode with no partial credit.
  *
  * @package    qbehaviour
- * @subpackage adaptiveallnothing
+ * @subpackage interactiveallnothing
  * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once(dirname(__FILE__) . '/../adaptive/behaviour.php');
+require_once(dirname(__FILE__) . '/../interactive/behaviour.php');
 
 /**
- * Question behaviour for adaptive mode (all-or-nothing).
+ * Question behaviour for interactive mode (all-or-nothing).
  *
- * This is same as adaptive except no credit is given for partially correct
+ * This is same as interactive except no credit is given for partially correct
  * responses.
  *
  * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
+class qbehaviour_interactiveallnothing extends qbehaviour_interactive {
     protected function adjusted_fraction($fraction, $prevtries) {
         return question_state::graded_state_for_fraction($fraction) ==
                 question_state::$gradedright ? $fraction - $this->question->penalty * $prevtries: 0;
@@ -49,21 +49,21 @@ class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
         return $this->qa->get_state()->default_string($showcorrectness);
     }
 
-    public function get_adaptive_marks() {
+    public function get_interactive_marks() {
         $gradedstep = $this->get_graded_step();
 
         // If not partially correct fall back to parent.
         if (empty($gradedstep) ||
                 question_state::graded_state_for_fraction($gradedstep->get_behaviour_var('_rawfraction'))
                      == question_state::$gradedright) {
-            return parent::get_adaptive_marks();
+            return parent::get_interactive_marks();
         }
 
         // Set state to wrong answer since it is partially correct.
         $state = question_state::$gradedwrong;
 
         // Prepare the grading details.
-        $details = $this->adaptive_mark_details_from_step($gradedstep, $state, $this->qa->get_max_mark(), $this->question->penalty);
+        $details = $this->interactive_mark_details_from_step($gradedstep, $state, $this->qa->get_max_mark(), $this->question->penalty);
 
         // Override raw score to show no credit.
         $details->rawmark = 0;

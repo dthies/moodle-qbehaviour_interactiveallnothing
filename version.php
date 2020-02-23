@@ -15,23 +15,23 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information for question behaviour adaptive mode all or nothing
+ * Version information for question behaviour interactive mode all or nothing
  *
  * @package    qbehaviour
- * @subpackage adaptiveallnothing
+ * @subpackage interactiveallnothing
  * @copyright  2015 Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'qbehaviour_adaptiveallnothing';
+$plugin->component = 'qbehaviour_interactiveallnothing';
 $plugin->version   = 2015051504;
 
 $plugin->requires  = 2013111800;
 $plugin->dependencies = array(
-    'qbehaviour_adaptive' => 2013111800
+    'qbehaviour_interactive' => 2013111800
 );
 
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release  = '2015051503';
+$plugin->release  = '1.0';

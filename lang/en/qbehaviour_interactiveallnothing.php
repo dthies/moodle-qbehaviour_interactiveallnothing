@@ -15,16 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Question behaviour type for interactive behaviour with all or nothing grading
+ * Strings for component 'qbehaviour_interactiveallnothing', language 'en'.
  *
- * @package    qbehaviour_interactiveallnothing
- * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
+ * @package    qbehaviour
+ * @subpackage interactiveallnothing
+ * @copyright  2015 Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-require_once(dirname(__FILE__) . '/../interactive/behaviourtype.php');
-
-class qbehaviour_interactiveallnothing_type extends qbehaviour_interactive_type {
-}
+$string['pluginname'] = 'Interactive mode (all or nothing)';
+$string['privacy:metadata'] = 'The Interactive mode (all-or-nothing) question behaviour plugin does not store any personal data.';
