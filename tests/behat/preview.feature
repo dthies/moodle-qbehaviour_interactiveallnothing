@@ -1,5 +1,5 @@
-@qtype @qbehaviour_interactiveallnothing
-Feature: Preview a Multiple choice question
+@qbehaviour @qbehaviour_interactiveallnothing
+Feature: Preview a Multiple choice question with Interactive mode all or nothing
   As a teacher
   In order to check my questions will work with Interactive mode all or nothing behaviour
   I need to preview them with Interactive mode all or nothing
